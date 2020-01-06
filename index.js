@@ -8,10 +8,10 @@ const { Storage } = require('@google-cloud/storage');
  *
  * @param {object} data The event payload.
  */
-exports.convertRawIntoNDJson = (data) => {
+exports.convertRawIntoNDJson = data => {
   // Metageneration attribute is updated on metadata changes. On create value is 1.
   if (data.metageneration !== '1') {
-    return;
+    return Promise.resolve();
   }
 
   const file = new Storage()
