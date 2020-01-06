@@ -15,8 +15,8 @@
   "main": "./index.js",
   "scripts": {
     "coverage": "nyc npm test",
-    "fix": "eslint --fix **/*.js",
-    "lint": "eslint **/*.js",
+    "fix": "eslint --fix ./*.js",
+    "lint": "eslint ./*.js",
     "test": "mocha --reporter mocha-multi-reporters --reporter-options configFile=./mocha-multi-reporters.json"
   },
   "dependencies": {
