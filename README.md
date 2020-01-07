@@ -1,4 +1,4 @@
-# access-logs-ndjson-gcs-cf
+# access-logs-ndjson-gcs-gcf
 
 Google Cloud Function to trigger raw access logs conversion into a newline delimited JSON file.
 
@@ -6,5 +6,5 @@ Google Cloud Function to trigger raw access logs conversion into a newline delim
 
 [1]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [2]: http://standardjs.com
-[3]: https://circleci.com/gh/ricardolsmendes/access-logs-ndjson-gcs-cf.svg?style=svg
-[4]: https://circleci.com/gh/ricardolsmendes/access-logs-ndjson-gcs-cf
+[3]: https://circleci.com/gh/ricardolsmendes/access-logs-ndjson-gcs-gcf.svg?style=svg
+[4]: https://circleci.com/gh/ricardolsmendes/access-logs-ndjson-gcs-gcf
