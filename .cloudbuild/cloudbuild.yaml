@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - functions
+  - deploy
+  - $FUNCTION_NAME
+  - --memory=256MB
+  - --trigger-event=google.storage.object.finalize
+  - --trigger-resource=$TRIGGER_BUCKET
+  - --source=$SOURCE_REPOSITORY
+  - --entry-point=convertRawIntoNDJson
+  - --runtime=nodejs10
+  - --max-instances=$MAX_INSTANCES
+  - --set-env-vars=TARGET_BUCKET=$TARGET_BUCKET
