@@ -11,5 +11,5 @@ steps:
     '--runtime', 'nodejs10',
     '--max-instances', '$_MAX_INSTANCES',
     '--service-account', '$_SERVICE_ACCOUNT',
-    '--set-env-vars', 'TARGET_BUCKET=$_TARGET_BUCKET',
+    '--set-env-vars', 'TARGET_BUCKET=$_TARGET_BUCKET,JSON_KEYS_CASE=$_JSON_KEYS_CASE',
   ]

@@ -18,5 +18,6 @@ exports.convertRawIntoNDJson = data => {
     .bucket(data.bucket)
     .file(data.name);
 
-  return new RawToNDJsonGCSFileConverter().convert(file, process.env.TARGET_BUCKET);
+  return new RawToNDJsonGCSFileConverter()
+    .convert(file, process.env.TARGET_BUCKET, process.env.JSON_KEYS_CASE);
 };

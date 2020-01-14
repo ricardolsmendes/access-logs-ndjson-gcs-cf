@@ -23,8 +23,7 @@ describe('convertRawIntoNDJson', () => {
       name: 'test.txt'
     });
 
-    assert.strictEqual('[object Promise]', Object.prototype.toString.call(
-      response));
+    assert.strictEqual(Object.prototype.toString.call(response), '[object Promise]');
   });
 
   it('ignores a file that was not created, e.g. updated or deleted', async () => {
@@ -46,8 +45,8 @@ describe('convertRawIntoNDJson', () => {
 
     const file = convertStub.getCall(0).args[0];
 
-    assert.strictEqual('testBucket', file.bucket.name);
-    assert.strictEqual('test.txt', file.name);
+    assert.strictEqual(file.bucket.name, 'testBucket');
+    assert.strictEqual(file.name, 'test.txt');
   });
 
   it('reads target bucket name from an environment variable', async () => {
@@ -61,9 +60,25 @@ describe('convertRawIntoNDJson', () => {
 
     const targetBucket = convertStub.getCall(0).args[1];
 
-    assert.strictEqual('testTargetBucket', targetBucket);
+    assert.strictEqual(targetBucket, 'testTargetBucket');
 
     delete process.env.TARGET_BUCKET;
+  });
+
+  it('reads JSON keys case from an environment variable', async () => {
+    process.env.JSON_KEYS_CASE = 'testSnake';
+
+    await convertRawIntoNDJson({
+      metageneration: '1',
+      bucket: 'testBucket',
+      name: 'test.txt'
+    });
+
+    const jsonKeysCase = convertStub.getCall(0).args[2];
+
+    assert.strictEqual(jsonKeysCase, 'testSnake');
+
+    delete process.env.JSON_KEYS_CASE;
   });
 
   afterEach(() => {
