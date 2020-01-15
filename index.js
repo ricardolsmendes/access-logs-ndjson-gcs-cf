@@ -1,7 +1,7 @@
 'use strict';
 
-const { RawToNDJsonGCSFileConverter } = require('access-logs-dw-gcp-js');
 const { Storage } = require('@google-cloud/storage');
+const { RawToNDJsonGCSFileConverter } = require('access-logs-dw-gcp-js');
 
 /**
  * Background Cloud Function to be triggered by Cloud Storage.
