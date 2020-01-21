@@ -7,7 +7,7 @@ steps:
     '--trigger-event', 'google.storage.object.finalize',
     '--trigger-resource', '$_TRIGGER_BUCKET',
     '--source', '$_SOURCE_REPOSITORY',
-    '--entry-point', 'convertRawIntoNDJson',
+    '--entry-point', 'convertRawIntoJsonLines',
     '--runtime', 'nodejs10',
     '--max-instances', '$_MAX_INSTANCES',
     '--service-account', '$_SERVICE_ACCOUNT',
