@@ -1,6 +1,6 @@
 {
   "name": "access-logs-ndjson-gcs-gcf",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Cloud Function to trigger raw access logs conversion into a newline delimited JSON file",
   "license": "MIT",
   "homepage": "https://github.com/ricardolsmendes/access-logs-ndjson-gcs-gcf#readme",
