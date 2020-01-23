@@ -43,10 +43,11 @@ describe('convertRawIntoJsonLines', () => {
       name: 'test.txt'
     });
 
-    const file = jsonLinesStub.getCall(0).args[0];
+    const sourceBucketName = jsonLinesStub.getCall(0).args[0];
+    const sourceFileName = jsonLinesStub.getCall(0).args[1];
 
-    assert.strictEqual(file.bucket.name, 'testBucket');
-    assert.strictEqual(file.name, 'test.txt');
+    assert.strictEqual(sourceBucketName, 'testBucket');
+    assert.strictEqual(sourceFileName, 'test.txt');
   });
 
   it('reads target bucket name from an environment variable', () => {
@@ -58,9 +59,9 @@ describe('convertRawIntoJsonLines', () => {
       name: 'test.txt'
     });
 
-    const targetBucket = jsonLinesStub.getCall(0).args[1];
+    const targetBucketName = jsonLinesStub.getCall(0).args[2];
 
-    assert.strictEqual(targetBucket, 'testTargetBucket');
+    assert.strictEqual(targetBucketName, 'testTargetBucket');
 
     delete process.env.TARGET_BUCKET;
   });
@@ -74,7 +75,7 @@ describe('convertRawIntoJsonLines', () => {
       name: 'test.txt'
     });
 
-    const jsonKeysCase = jsonLinesStub.getCall(0).args[2];
+    const jsonKeysCase = jsonLinesStub.getCall(0).args[3];
 
     assert.strictEqual(jsonKeysCase, 'testSnake');
 
