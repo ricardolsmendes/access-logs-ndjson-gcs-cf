@@ -1,0 +1,25 @@
+# Javascript Node GitLab CI configuration file
+#
+image: node:10.16.3
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - test
+
+install_dependencies:
+  stage: test
+  script:
+    - npm ci
+
+run_eslint:
+  stage: test
+  script:
+    - npm run lint
+
+run_tests_with_coverage:
+  stage: test
+  script: 
+    - npm run coverage
