@@ -10,10 +10,10 @@ install_dependencies:
   stage: .pre
   script: npm ci
 
-test:
+lint_and_test:
   script:
-    - npm run coverage
     - npm run lint
+    - npm run coverage
   coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
   artifacts:
     paths:
