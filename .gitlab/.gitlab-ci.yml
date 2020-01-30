@@ -1,0 +1,22 @@
+# Javascript Node GitLab CI configuration file
+#
+image: node:10.16.3
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: .pre
+  script: npm ci
+
+lint_and_test:
+  script:
+    - npm run lint
+    - npm run coverage
+  coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
+  artifacts:
+    paths:
+      - coverage/
+    reports:
+      junit: test-results/mocha/results.xml
