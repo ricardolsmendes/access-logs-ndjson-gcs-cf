@@ -16,6 +16,7 @@ test:
     - npm run lint
   coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
   artifacts:
-    paths: coverage/
+    paths:
+      - coverage/
     reports:
       junit: test-results/mocha/results.xml
