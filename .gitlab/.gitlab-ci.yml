@@ -6,20 +6,16 @@ cache:
   paths:
     - node_modules/
 
-stages:
-  - test
-
 install_dependencies:
-  stage: test
-  script:
-    - npm ci
+  stage: .pre
+  script: npm ci
 
-run_eslint:
-  stage: test
+test:
   script:
-    - npm run lint
-
-run_tests_with_coverage:
-  stage: test
-  script: 
     - npm run coverage
+    - npm run lint
+  coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
+  artifacts:
+    paths: coverage/
+    reports:
+      junit: test-results/mocha/results.xml
