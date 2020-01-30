@@ -1,3 +1,5 @@
+# Javascript Node GitLab CI configuration file
+#
 image: node:10.16.3
 
 cache:
