@@ -17,13 +17,14 @@ describe('convertRawIntoJsonLines', () => {
   });
 
   it('returns a promise', () => {
-    const response = convertRawIntoJsonLines({
+    const convertRawIntoJsonLinesReturn = convertRawIntoJsonLines({
       metageneration: '2',
       bucket: 'testBucket',
       name: 'test.txt'
     });
 
-    assert.strictEqual(Object.prototype.toString.call(response), '[object Promise]');
+    assert.strictEqual(Object.prototype.toString.call(convertRawIntoJsonLinesReturn),
+      '[object Promise]');
   });
 
   it('ignores a file that was not created, e.g. updated or deleted', () => {
