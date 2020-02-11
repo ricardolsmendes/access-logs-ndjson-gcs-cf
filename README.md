@@ -13,24 +13,24 @@ Below environment variables are used by the function:
 
 | NAME | DESCRIPTION | MANDATORY |
 | ---- | ----------- | --------- |
-| TARGET_BUCKET | GCS Bucket to store the output. | Y |
-| JSON_KEYS_CASE | Character case of the output JSON object keys; defaults to `camel`, accepts `snake` as well. | N |
+| TARGET_BUCKET | GCS Bucket to store the output. | Yes |
+| JSON_KEYS_CASE | Character case of the output JSON object keys; defaults to `camel`, accepts `snake` as well. | No |
 
 ## Using Cloud Build to deploy
 
 Present function is deployable through Cloud Build (build spec file: `.cloudbuild/cloudbuild.yaml`).
 
-Below substitution variables are used by the build job:
+Below substitution variables are required by the build job:
 
-| NAME | DESCRIPTION | MANDATORY |
-| ---- | ----------- | --------- |
-| _FUNCTION_NAME | ID or fully qualified identifier for the function. | Y |
-| _JSON_KEYS_CASE | Character case of the output JSON object keys. | Y |
-| _MAX_INSTANCES | Maximum number of instances for the function. | Y |
-| _SERVICE_ACCOUNT | The email address of the IAM service account associated with the function at runtime. | Y |
-| _SOURCE | Location of source code to deploy. | Y |
-| _TARGET_BUCKET | GCS Bucket to store the output. | Y |
-| _TRIGGER_BUCKET | GCS Bucket that will trigger the Cloud Function on file-related events. | Y |
+| NAME | DESCRIPTION |
+| ---- | ----------- |
+| _FUNCTION_NAME | ID or fully qualified identifier for the function. |
+| _JSON_KEYS_CASE | Character case of the output JSON object keys. |
+| _MAX_INSTANCES | Maximum number of instances for the function. |
+| _SERVICE_ACCOUNT | The email address of the IAM service account associated with the function at runtime. |
+| _SOURCE | Location of source code to deploy. |
+| _TARGET_BUCKET | GCS Bucket to store the output. |
+| _TRIGGER_BUCKET | GCS Bucket that will trigger the Cloud Function on file-related events. |
 
 You may refer to [gcloud functions deploy docs][6] for instructions on how to fulfill some of the
 variables.
