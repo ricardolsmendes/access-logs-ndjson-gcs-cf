@@ -1,14 +1,16 @@
-# Javascript Node GitLab CI configuration file
-#
+# ===============================================
+# Javascript/Node.js GitLab CI configuration file
+# ===============================================
+
 image: node:10.16.3
 
 cache:
+  key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
 
-install_dependencies:
-  stage: .pre
-  script: npm ci
+before_script:
+  - npm ci --cache .node_modules --prefer-offline
 
 lint_and_test:
   script:
