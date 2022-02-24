@@ -9,7 +9,7 @@ const { convertRawIntoJsonLines } = require('./index');
 
 describe('convertRawIntoJsonLines', () => {
 
-  var jsonLinesStub;
+  let jsonLinesStub;
 
   beforeEach(() => {
     jsonLinesStub = sinon.stub(RawToSchemaGCSFileConverter.prototype, 'jsonLines').returns(
